@@ -1,4 +1,4 @@
-# Waitlist landing page
+# The Mountain Flame: waitlist landing page
 
 A one-screen landing page (logo, **Join the Waitlist**, a button to the sign-up form, and Instagram / Find us links in the footer) with a small Node backend that stores sign-ups in SQLite.
 
@@ -20,7 +20,8 @@ ADMIN_TOKEN=pick-a-secret npm start
 
 ## Customise
 
-- **Logo:** replace `public/logo.svg` (the current one is a placeholder mountain-and-flames mark). To use a PNG, drop it in `public/` and update the `src` in `index.html` and `join.html`.
+- **Brand:** colours follow the brand guidelines (Ember Maroon `#531117`, Warm Parchment `#CDC0AA`). The display face Giliran isn't on Google Fonts, so Cinzel stands in. To use Giliran, add its font files to `public/` and point `--display` in `styles.css` at it.
+- **Logo:** `public/logo.webp` is the full lockup; `public/brandmark.webp` is the mountain-and-flame mark (used on the form and as the faint background flame); `public/favicon.png` is the tab icon.
 - **Instagram / Google Maps links:** edit `public/config.js`.
 
 ## Viewing sign-ups
