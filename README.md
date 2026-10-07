@@ -47,5 +47,5 @@ npm start              # http://localhost:3000
 ## Customise
 
 - **Brand:** colours follow the brand guidelines (Ember Maroon `#531117`, Warm Parchment `#CDC0AA`). The display face Giliran isn't on Google Fonts, so Cinzel stands in. To use Giliran, add its font files to `public/` and point `--display` in `styles.css` at it.
-- **Logo:** `public/logo.webp` is the full lockup; `public/brandmark.webp` is the mountain-and-flame mark (used on the form and as the faint background flame); `public/favicon.png` is the tab icon.
+- **Logo:** `public/logo.png` is the full lockup; `public/brandmark.png` is the mountain-and-flame mark (used on the form and as the faint background flame); `public/favicon.png` is the tab icon.
 - **Instagram / Google Maps links:** edit `public/config.js`.

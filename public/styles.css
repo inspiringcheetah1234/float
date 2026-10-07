@@ -35,7 +35,7 @@ body {
   width: min(1100px, 150vw);
   aspect-ratio: 754 / 513;
   transform: translateX(-50%);
-  background: url('brandmark.webp') center bottom / contain no-repeat;
+  background: url('brandmark.png') center bottom / contain no-repeat;
   opacity: 0.07;
   pointer-events: none;
   z-index: 0;
