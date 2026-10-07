@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Mountain flames logo">
+  <defs>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#d9381e"/>
+      <stop offset="0.55" stop-color="#f27a1a"/>
+      <stop offset="1" stop-color="#ffc145"/>
+    </linearGradient>
+    <linearGradient id="peak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ece1"/>
+      <stop offset="1" stop-color="#8a7a6a"/>
+    </linearGradient>
+  </defs>
+  <!-- flames rising from behind the peaks -->
+  <path fill="url(#flame)" d="M100 6c8 18 26 26 22 50 10-6 12-18 10-26 14 14 18 34 10 52H58c-8-18-4-38 10-52-2 8 0 20 10 26-4-24 14-32 22-50z"/>
+  <!-- back range -->
+  <path fill="#5a4a3c" d="M0 150 52 74l26 34 22-30 30 40 22-24 48 56z"/>
+  <!-- main peak -->
+  <path fill="url(#peak)" d="M24 150 100 52l76 98z"/>
+  <path fill="#2a211b" opacity=".35" d="M100 52l76 98H100z"/>
+  <!-- snow cap -->
+  <path fill="#fff8ee" d="M100 52 82 75l9-4 9 8 9-8 9 4z"/>
+</svg>

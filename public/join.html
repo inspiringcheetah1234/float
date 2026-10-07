@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the Waitlist</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <a href="/"><img class="logo logo--small" src="logo.svg" alt="Mountain flames logo — back to home"></a>
+
+    <div class="card">
+      <form id="waitlist-form" novalidate>
+        <h2>Save your spot</h2>
+        <p class="sub">Be the first to know when we fire up.</p>
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="100">
+          <div class="error" data-error-for="name"></div>
+        </div>
+
+        <div class="field">
+          <label for="contact">Contact number</label>
+          <input id="contact" name="contact" type="tel" autocomplete="tel" inputmode="tel" placeholder="03XX XXXXXXX" required maxlength="20">
+          <div class="error" data-error-for="contact"></div>
+        </div>
+
+        <div class="field">
+          <label for="area">Area of residence</label>
+          <input id="area" name="area" type="text" autocomplete="address-level2" placeholder="e.g. DHA Phase 5" required maxlength="150">
+          <div class="error" data-error-for="area"></div>
+        </div>
+
+        <fieldset class="field">
+          <legend>What are you most excited about?</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="excitedFor" value="dumba" required>
+              <span><span class="emoji">🐑</span>Dumba</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="excitedFor" value="mutton_karahi">
+              <span><span class="emoji">🍲</span>Mutton Karahi</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="excitedFor" value="both">
+              <span><span class="emoji">🔥</span>Both!</span>
+            </label>
+          </div>
+          <div class="error" data-error-for="excitedFor"></div>
+        </fieldset>
+
+        <button class="btn" type="submit">Join the waitlist</button>
+        <div class="error form-error" data-error-for="form"></div>
+      </form>
+
+      <div class="success" id="success" hidden>
+        <div class="big">🔥</div>
+        <h2>You're on the list!</h2>
+        <p class="sub">We'll reach out as soon as we're ready to serve.</p>
+      </div>
+    </div>
+
+    <a class="back" href="/">← Back</a>
+  </main>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const button = form.querySelector('button[type="submit"]');
+
+    function showErrors(errors) {
+      form.querySelectorAll('[data-error-for]').forEach((el) => {
+        el.textContent = errors[el.dataset.errorFor] || '';
+      });
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+
+      const errors = {};
+      if (!data.name || data.name.trim().length < 2) errors.name = 'Please enter your name.';
+      if (!/^\+?[\d\s-]{10,15}$/.test((data.contact || '').trim())) errors.contact = 'Please enter a valid phone number.';
+      if (!data.area || data.area.trim().length < 2) errors.area = 'Please enter your area of residence.';
+      if (!data.excitedFor) errors.excitedFor = 'Please pick one.';
+      showErrors(errors);
+      if (Object.keys(errors).length) return;
+
+      button.disabled = true;
+      button.textContent = 'Joining…';
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          form.hidden = true;
+          document.getElementById('success').hidden = false;
+          return;
+        }
+        const body = await res.json().catch(() => ({}));
+        showErrors(body.errors || { form: 'Something went wrong. Please try again.' });
+      } catch {
+        showErrors({ form: 'Network error. Please check your connection and try again.' });
+      }
+      button.disabled = false;
+      button.textContent = 'Join the waitlist';
+    });
+  </script>
+</body>
+</html>
