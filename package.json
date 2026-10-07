@@ -2,13 +2,13 @@
   "name": "float-waitlist",
   "version": "1.0.0",
   "private": true,
-  "description": "Waitlist landing page with a small Node backend that stores sign-ups in SQLite.",
+  "description": "Waitlist landing page for The Mountain Flame; sign-ups are saved to a Google Sheet.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node --env-file-if-exists=.env server.js"
   },
   "engines": {
-    "node": ">=22.13"
+    "node": ">=22.9"
   },
   "dependencies": {
     "express": "^4.21.2"
