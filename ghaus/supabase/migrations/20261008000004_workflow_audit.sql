@@ -217,17 +217,29 @@ begin
   select name into v_client from public.clients where id = new.client_id;
   v_link := '/clients/' || new.client_id || '?ty=' || new.tax_year;
 
-  -- Forward move: earlier stages' open auto-tasks are done.
+  -- Forward move: auto-tasks whose work is now finished are done.
+  -- Backward move (sent back): auto-tasks for stages not yet reached again are cancelled.
   if tg_op = 'UPDATE' and new_rank > app.return_rank(old.return_status) then
     update public.tasks t
-       set status = 'done', completed_at = now()
+       set status = 'done'
       from public.pipeline_task_rules pr
      where t.client_tax_year_id = new.id
        and t.auto_rule_id = pr.id
        and t.status in ('open', 'in_progress')
        and t.deleted_at is null
        and pr.entity = 'return'
-       and app.return_rank(pr.on_status::public.return_status) < new_rank;
+       and new_rank >= coalesce(app.return_rank(pr.complete_on_status::public.return_status),
+                                app.return_rank(pr.on_status::public.return_status) + 1);
+  elsif tg_op = 'UPDATE' and new_rank < app.return_rank(old.return_status) then
+    update public.tasks t
+       set status = 'cancelled'
+      from public.pipeline_task_rules pr
+     where t.client_tax_year_id = new.id
+       and t.auto_rule_id = pr.id
+       and t.status in ('open', 'in_progress')
+       and t.deleted_at is null
+       and pr.entity = 'return'
+       and app.return_rank(pr.on_status::public.return_status) > new_rank;
   end if;
 
   for r in
@@ -289,14 +301,25 @@ begin
 
   if tg_op = 'UPDATE' and new_rank > app.notice_rank(old.status) then
     update public.tasks t
-       set status = 'done', completed_at = now()
+       set status = 'done'
       from public.pipeline_task_rules pr
      where t.notice_id = new.id
        and t.auto_rule_id = pr.id
        and t.status in ('open', 'in_progress')
        and t.deleted_at is null
        and pr.entity = 'notice'
-       and app.notice_rank(pr.on_status::public.notice_status) < new_rank;
+       and new_rank >= coalesce(app.notice_rank(pr.complete_on_status::public.notice_status),
+                                app.notice_rank(pr.on_status::public.notice_status) + 1);
+  elsif tg_op = 'UPDATE' and new_rank < app.notice_rank(old.status) then
+    update public.tasks t
+       set status = 'cancelled'
+      from public.pipeline_task_rules pr
+     where t.notice_id = new.id
+       and t.auto_rule_id = pr.id
+       and t.status in ('open', 'in_progress')
+       and t.deleted_at is null
+       and pr.entity = 'notice'
+       and app.notice_rank(pr.on_status::public.notice_status) > new_rank;
   end if;
 
   for r in

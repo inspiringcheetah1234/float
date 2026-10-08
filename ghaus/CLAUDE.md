@@ -20,7 +20,8 @@ npm test              # vitest unit tests (src/**/*.test.ts)
 npm run typecheck && npm run lint
 npm run seed:demo     # demo firm, staff, clients (needs .env.local with service-role key)
 npm run dev           # http://localhost:3000
-npm run test:e2e      # Playwright smoke tests (app + local Supabase must be running, demo seeded)
+npm run test:e2e      # Playwright (app running, fresh db:reset + seed:demo). In the build sandbox set
+                      # PW_CHROMIUM_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
 ```
 
 ## Non-negotiables
@@ -57,6 +58,11 @@ npm run test:e2e      # Playwright smoke tests (app + local Supabase must be run
 - Pure domain logic (tax year, CNIC, money, dates, pipeline labels, wealth) lives in `src/lib/domain`
   with vitest tests next to it. Keep it free of React and Supabase imports.
 - Next.js 16: `params`, `searchParams`, `cookies()` are async; middleware is `src/proxy.ts`.
+  Cache Components is deliberately **off** (every page is per-user and RLS-scoped).
+- Never import values (constants, objects) from a `"use client"` module into a Server Component —
+  they arrive as client references. Put shared constants in `src/lib/domain`.
+- Values interpolated into PostgREST `.or()` filter strings must be sanitised (see `searchClients`)
+  or validated as UUIDs.
 - UI: shadcn/ui primitives in `src/components/ui` (vendored by hand; the shadcn registry is blocked
   in the build sandbox). Prefer composing these over new primitives. Lucide icons.
 - Tables/enums use snake_case in SQL; TypeScript uses the generated `Database` types

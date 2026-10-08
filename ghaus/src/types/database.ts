@@ -1883,6 +1883,7 @@ export type Database = {
       pipeline_task_rules: {
         Row: {
           assign_to: string;
+          complete_on_status: string | null;
           created_at: string;
           created_by: string | null;
           deleted_at: string | null;
@@ -1900,6 +1901,7 @@ export type Database = {
         ComputedFields: never;
         Insert: {
           assign_to?: string;
+          complete_on_status?: string | null;
           created_at?: string;
           created_by?: string | null;
           deleted_at?: string | null;
@@ -1916,6 +1918,7 @@ export type Database = {
         };
         Update: {
           assign_to?: string;
+          complete_on_status?: string | null;
           created_at?: string;
           created_by?: string | null;
           deleted_at?: string | null;

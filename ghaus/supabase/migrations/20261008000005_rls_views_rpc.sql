@@ -307,16 +307,16 @@ begin
     (p_firm_id, 'reply', 'Reply', 100),
     (p_firm_id, 'other', 'Other', 999);
 
-  insert into public.pipeline_task_rules (firm_id, entity, on_status, title, assign_to, due_in_days) values
-    (p_firm_id, 'return', 'documents_requested', 'Follow up documents: {client} {ty}', 'assignee', 7),
-    (p_firm_id, 'return', 'documents_received', 'Prepare return: {client} {ty}', 'assignee', 7),
-    (p_firm_id, 'return', 'under_review', 'Review return: {client} {ty}', 'reviewer', 3),
-    (p_firm_id, 'return', 'sent_for_client_approval', 'Get client approval: {client} {ty}', 'assignee', 5),
-    (p_firm_id, 'return', 'approved', 'File return on IRIS: {client} {ty}', 'assignee', 2),
-    (p_firm_id, 'return', 'filed', 'Upload acknowledgment: {client} {ty}', 'assignee', 2),
-    (p_firm_id, 'notice', 'received', 'Draft reply: {client}', 'assignee', 5),
-    (p_firm_id, 'notice', 'under_review', 'Review notice reply: {client}', 'reviewer', 2),
-    (p_firm_id, 'notice', 'hearing', 'Prepare for hearing: {client}', 'assignee', 3);
+  insert into public.pipeline_task_rules (firm_id, entity, on_status, complete_on_status, title, assign_to, due_in_days) values
+    (p_firm_id, 'return', 'documents_requested', 'documents_received', 'Follow up documents: {client} {ty}', 'assignee', 7),
+    (p_firm_id, 'return', 'documents_received', 'under_review', 'Prepare return: {client} {ty}', 'assignee', 7),
+    (p_firm_id, 'return', 'under_review', 'sent_for_client_approval', 'Review return: {client} {ty}', 'reviewer', 3),
+    (p_firm_id, 'return', 'sent_for_client_approval', 'approved', 'Get client approval: {client} {ty}', 'assignee', 5),
+    (p_firm_id, 'return', 'approved', 'filed', 'File return on IRIS: {client} {ty}', 'assignee', 2),
+    (p_firm_id, 'return', 'filed', 'acknowledgment_uploaded', 'Upload acknowledgment: {client} {ty}', 'assignee', 2),
+    (p_firm_id, 'notice', 'received', 'reply_drafted', 'Draft reply: {client}', 'assignee', 5),
+    (p_firm_id, 'notice', 'under_review', 'submitted', 'Review notice reply: {client}', 'reviewer', 2),
+    (p_firm_id, 'notice', 'hearing', 'order', 'Prepare for hearing: {client}', 'assignee', 3);
 
   insert into public.message_templates (firm_id, key, name, channel, body) values
     (p_firm_id, 'documents_request', 'Request documents for return', 'whatsapp',

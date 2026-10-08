@@ -4,9 +4,14 @@
 alter table public.pipeline_task_rules add constraint pipeline_task_rules_status_chk check (
   (entity = 'return' and on_status in (
     'not_started', 'documents_requested', 'documents_received', 'in_preparation', 'under_review',
-    'sent_for_client_approval', 'approved', 'filed', 'acknowledgment_uploaded', 'closed'))
+    'sent_for_client_approval', 'approved', 'filed', 'acknowledgment_uploaded', 'closed')
+    and (complete_on_status is null or complete_on_status in (
+    'not_started', 'documents_requested', 'documents_received', 'in_preparation', 'under_review',
+    'sent_for_client_approval', 'approved', 'filed', 'acknowledgment_uploaded', 'closed')))
   or (entity = 'notice' and on_status in (
-    'received', 'reply_drafted', 'under_review', 'submitted', 'hearing', 'order', 'closed', 'appealed'))
+    'received', 'reply_drafted', 'under_review', 'submitted', 'hearing', 'order', 'closed', 'appealed')
+    and (complete_on_status is null or complete_on_status in (
+    'received', 'reply_drafted', 'under_review', 'submitted', 'hearing', 'order', 'closed', 'appealed')))
 );
 
 -- ---------------------------------------------------------------------------

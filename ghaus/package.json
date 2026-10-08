@@ -10,11 +10,11 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:db": "supabase test db",
-    "test:e2e": "playwright test",
+    "test:e2e": "PW_CHROMIUM_PATH=${PW_CHROMIUM_PATH:-} playwright test",
     "db:start": "SUPABASE_INTERNAL_IMAGE_REGISTRY=docker.io supabase start",
     "db:reset": "SUPABASE_INTERNAL_IMAGE_REGISTRY=docker.io supabase db reset",
     "db:types": "supabase gen types typescript --local --schema public > src/types/database.ts && prettier --write src/types/database.ts",
-    "seed:demo": "node --env-file=.env.local --experimental-strip-types scripts/seed-demo.ts"
+    "seed:demo": "node --env-file=.env.local --experimental-strip-types scripts/seed-demo.mts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

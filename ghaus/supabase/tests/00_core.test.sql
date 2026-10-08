@@ -3,7 +3,7 @@
 -- Run with: npm run test:db
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(51);
+select plan(53);
 
 -- ---------------------------------------------------------------------------
 -- Helpers: act as a user with a given assurance level
@@ -150,9 +150,12 @@ select is((select count(*)::int from public.tasks where client_tax_year_id = '30
             and title like 'Prepare return: Ahmed Raza TY2026' and assignee_id = '00000000-0000-0000-0000-0000000000a1'),
   1, '"Documents received" auto-creates "Prepare return" for the assignee');
 
+update public.client_tax_years set return_status = 'in_preparation' where id = '30000000-0000-0000-0000-000000000001';
+select is((select status::text from public.tasks where client_tax_year_id = '30000000-0000-0000-0000-000000000001'
+            and title like 'Prepare return%'), 'open', '"Prepare return" stays open while in preparation');
 update public.client_tax_years set return_status = 'under_review' where id = '30000000-0000-0000-0000-000000000001';
 select is((select status::text from public.tasks where client_tax_year_id = '30000000-0000-0000-0000-000000000001'
-            and title like 'Prepare return%'), 'done', 'moving forward completes the earlier auto-task');
+            and title like 'Prepare return%'), 'done', 'reaching Under review completes "Prepare return"');
 select is((select count(*)::int from public.notifications), 0, 'associate cannot read the reviewer''s notifications');
 
 select throws_ok(
@@ -175,6 +178,8 @@ select is((select return_status::text from public.client_tax_years where id = '3
 update public.client_tax_years set return_status = 'in_preparation' where id = '30000000-0000-0000-0000-000000000001';
 select is((select review_signed_off_at from public.client_tax_years where id = '30000000-0000-0000-0000-000000000001'),
   null, 'sending back for rework clears the sign-off');
+select is((select status::text from public.tasks where client_tax_year_id = '30000000-0000-0000-0000-000000000001'
+            and title like 'Get client approval%'), 'cancelled', 'sending back cancels auto-tasks for later stages');
 
 select pg_temp.act_as('00000000-0000-0000-0000-0000000000a1', 'aal1');
 select throws_ok(

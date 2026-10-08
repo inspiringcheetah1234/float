@@ -317,6 +317,8 @@ create table public.pipeline_task_rules (
   firm_id uuid not null references public.firms (id),
   entity public.pipeline_entity not null,
   on_status text not null,
+  -- the task is done once the record reaches this status (default: the next status)
+  complete_on_status text,
   title text not null,
   assign_to text not null default 'assignee' check (assign_to in ('assignee', 'reviewer')),
   due_in_days integer not null default 3 check (due_in_days between 0 and 365),

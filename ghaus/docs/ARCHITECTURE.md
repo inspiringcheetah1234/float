@@ -125,7 +125,7 @@ withholding statements 20th of the month after the quarter; appeals 30 / 60 / 90
 | Table | Purpose |
 | --- | --- |
 | `documents` | Per client (optionally client-year / notice / appeal), type, Storage path in private `documents` bucket (`<firm_id>/<client_id>/…`), served by short-expiry signed URLs |
-| `document_types`, `message_templates`, `pipeline_task_rules` | Settings libraries. Task rules: "on status X create task Y for assignee/reviewer due in N days" |
+| `document_types`, `message_templates`, `pipeline_task_rules` | Settings libraries. Task rules: "on status X create task Y for assignee/reviewer due in N days; mark it done when status Z is reached". Sending work back cancels auto-tasks for stages not reached again |
 | `tasks` | Linked to client / client-year / notice / appeal; assignee, due, status; `auto_rule_id` when created by the pipeline |
 | `comments` | On client / client-year / notice / appeal, with `mentions uuid[]` → notifications |
 | `notifications` | In-app, per user |
