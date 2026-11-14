@@ -4,6 +4,7 @@
   const R = window.RESTAURANT;
   const MENU = window.MENU;
   const CART_KEY = 'tmf-cart-v1';
+  const orderingLive = /^\d{10,15}$/.test(R.whatsapp) && !/^920+$/.test(R.whatsapp);
   const MODE_LABELS = { delivery: 'Delivery order', pickup: 'Pickup order', dinein: 'Table booking' };
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -326,6 +327,13 @@
       const first = Object.keys(errors)[0];
       const field = form.elements[first];
       if (field && field.focus) field.focus(); else $(`[data-error="${first}"]`, form).scrollIntoView({ block: 'center' });
+      return;
+    }
+
+    // Until a real number is set in config.js, don't send orders to a number nobody reads.
+    if (!orderingLive) {
+      $('[data-error="cart"]', form).textContent =
+        'Online ordering opens soon. For now, message us on Instagram @tmflame_ to order or book.';
       return;
     }
 

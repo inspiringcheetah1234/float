@@ -1,5 +1,8 @@
 {
   "framework": null,
   "outputDirectory": "public",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": false }
+  ]
 }
