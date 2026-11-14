@@ -7,7 +7,7 @@ window.SITE_LINKS = {
 window.RESTAURANT = {
   // WhatsApp number that receives orders and bookings: country code + number, digits only.
   // e.g. 0300 1234567 in Pakistan becomes '923001234567'.
-  whatsapp: '920000000000',
+  whatsapp: '923102067333',
   address: 'Falcon Downtown, Fazaia Housing Scheme, Lahore',
   hours: 'Open daily, 12pm – 12am',
   // Last time slot offered for bookings and pickups, and minutes between slots.
