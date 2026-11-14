@@ -1,4 +1,4 @@
-// The menu, from The Mountain Flame menu card. Prices in PKR.
+// The menu, from The Mountain Flame menu card (21 October version). Prices in PKR.
 //
 // Each category has a list of items. An item has:
 //   id       unique, lowercase, no spaces (used to track the cart)
@@ -15,9 +15,9 @@ window.MENU = [
     category: 'Lamb',
     items: [
       { id: 'lamb-shinwari-karahi', name: 'Lamb Shinwari Karahi', options: halfFull(3145, 5745) },
-      { id: 'lamb-shinwari-karahi-special', name: 'Lamb Shinwari Karahi', tag: 'Special', options: [{ label: 'Full', price: 6245 }] },
+      { id: 'lamb-shinwari-karahi-special', name: 'Lamb Shinwari Karahi', tag: 'Special', options: [{ label: 'Full', price: 6145 }] },
       { id: 'lamb-sulemani-karahi', name: 'Lamb Sulemani Karahi', options: halfFull(3145, 5745) },
-      { id: 'lamb-sulemani-karahi-special', name: 'Lamb Sulemani Karahi', tag: 'Special', options: [{ label: 'Full', price: 6245 }] },
+      { id: 'lamb-sulemani-karahi-special', name: 'Lamb Sulemani Karahi', tag: 'Special', options: [{ label: 'Full', price: 6145 }] },
       { id: 'lamb-shinwari-qeema', name: 'Lamb Shinwari Qeema', options: halfFull(3145, 5745) },
       { id: 'lamb-namkeen-rosh', name: 'Lamb Namkeen Rosh', options: [{ label: 'Full', price: 5745 }] },
       { id: 'lamb-masala-rosh', name: 'Lamb Masala Rosh', options: [{ label: 'Full', price: 5745 }] },
@@ -36,20 +36,19 @@ window.MENU = [
   {
     category: 'Chicken',
     items: [
-      { id: 'chicken-shinwari-karahi', name: 'Chicken Shinwari Karahi', options: halfFull(1545, 2745) },
-      { id: 'chicken-sulemani-karahi', name: 'Chicken Sulemani Karahi', options: halfFull(1545, 2745) },
+      { id: 'chicken-shinwari-karahi', name: 'Chicken Shinwari Karahi', options: halfFull(1545, 2845) },
       { id: 'chicken-seekh-kebab', name: 'Chicken Seekh Kebab', options: [{ label: 'Full', price: 1845 }] },
       { id: 'chicken-tikka-boti', name: 'Chicken Tikka Boti', options: [{ label: 'Full', price: 1845 }] },
-      { id: 'chicken-malai-boti', name: 'Chicken Malai Boti', options: [{ label: 'Full', price: 2145 }] },
+      { id: 'chicken-malai-boti', name: 'Chicken Malai Boti', options: [{ label: 'Full', price: 2245 }] },
     ],
   },
   {
     category: 'Beef & Pulao',
     items: [
-      { id: 'beef-chappal-kebab', name: 'Beef Chappal Kebab', options: halfFull(1745, 2845) },
+      { id: 'beef-chappal-kebab', name: 'Beef Chappal Kebab', options: halfFull(1745, 2945) },
       { id: 'beef-seekh-kebab', name: 'Beef Seekh Kebab', options: [{ label: 'Full', price: 2545 }] },
-      { id: 'beef-kabli-pulao', name: 'Beef Kabli Pulao', options: [{ label: 'Full', price: 2145 }] },
-      { id: 'plain-kabli-pulao', name: 'Plain Kabli Pulao', options: [{ label: 'Full', price: 1045 }] },
+      { id: 'beef-kabli-pulao', name: 'Beef Kabli Pulao', options: [{ label: 'Full', price: 2245 }] },
+      { id: 'plain-kabli-pulao', name: 'Plain Kabli Pulao', options: [{ label: 'Full', price: 1145 }] },
     ],
   },
   {
@@ -57,7 +56,14 @@ window.MENU = [
     items: [
       { id: 'mountain-flame-platter', name: 'The Mountain Flame Platter', tag: 'For sharing',
         desc: 'Chicken Seekh Kebab · Beef Seekh Kebab · Chicken Tikka Boti · Chicken Malai Boti · Beef Chappal Kebab · Plain Kabli Pulao · Mint Raita',
-        options: [{ label: '3–4 persons', price: 7945 }, { label: '6–8 persons', price: 13545 }] },
+        options: [{ label: '3–4 persons', price: 7945 }, { label: '6–8 persons', price: 13745 }] },
+    ],
+  },
+  {
+    category: 'Tandoor',
+    items: [
+      { id: 'afghani-roti', name: 'Afghani Roti', price: 165 },
+      { id: 'afghani-naan', name: 'Afghani Naan', price: 225 },
     ],
   },
   {
@@ -65,8 +71,9 @@ window.MENU = [
     items: [
       { id: 'mint-raita', name: 'Mint Raita', price: 325 },
       { id: 'zeera-raita', name: 'Zeera Raita', price: 325 },
-      { id: 'tomato-chutney', name: 'Tomato Chutney', price: 375 },
       { id: 'fresh-salad', name: 'Fresh Salad', price: 325 },
+      { id: 'green-sauce', name: 'Green Sauce', price: 125 },
+      { id: 'tomato-sauce', name: 'Tomato Sauce', price: 125 },
     ],
   },
   {
@@ -84,7 +91,7 @@ window.MENU = [
     category: 'Desserts',
     items: [
       { id: 'gulab-jamun', name: 'Gulab Jamun', price: 445 },
-      { id: 'toothi', name: 'Toothi', price: 345 },
+      { id: 'toothi', name: 'Toothi', price: 445 },
     ],
   },
 ];

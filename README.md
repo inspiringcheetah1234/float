@@ -49,7 +49,7 @@ npm start              # http://localhost:3000
 `public/home.html` is the full restaurant site: the menu, a cart, and checkout for **delivery**, **pickup** or **booking a table** (with an optional pre-order). Checkout sends nothing to a server: it opens WhatsApp with the order, contact details and booking already written out, and the customer taps send.
 
 - **WhatsApp number, address, hours, booking times:** `public/config.js`. Set `whatsapp` to the number that should receive orders (digits only, with country code, e.g. `923001234567`).
-- **Menu and prices:** `public/menu-data.js`, copied from the printed menu card.
+- **Menu and prices:** `public/menu-data.js`, copied from the printed menu card (21 October version).
 - The waitlist stays at `/` for now. To launch the main site, rename `public/index.html` to `public/waitlist.html` and `public/home.html` to `public/index.html`.
 
 ## Customise
