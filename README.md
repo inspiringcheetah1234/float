@@ -1,4 +1,4 @@
-# The Mountain Flame: waitlist landing page
+# The Mountain Flame website
 
 A one-screen landing page (logo, **Join the Waitlist**, a button to the sign-up form, and Instagram / Find us links in the footer). Sign-ups are saved as rows in a Google Sheet.
 
