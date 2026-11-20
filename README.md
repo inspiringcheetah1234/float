@@ -1,5 +1,7 @@
 # The Mountain Flame website
 
+> This repo also holds the **Float AI** site in [`floatai/`](floatai/README.md). It's a separate static site with its own deploy steps.
+
 A one-screen landing page (logo, **Join the Waitlist**, a button to the sign-up form, and Instagram / Find us links in the footer). Sign-ups are saved as rows in a Google Sheet.
 
 ```

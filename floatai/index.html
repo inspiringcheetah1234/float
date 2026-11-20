@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Float AI · Systems that run your business</title>
+  <meta name="description" content="Float AI builds automated systems for growing businesses in Pakistan: websites and custom software, CRMs, stock and sales tracking, WhatsApp automation and AI receptionists. Based in Lahore.">
+  <meta name="theme-color" content="#07090b">
+  <meta property="og:title" content="Float AI · Systems that run your business">
+  <meta property="og:description" content="Websites, CRMs, stock and sales tracking, WhatsApp automation and AI receptionists, built around how your business works. Lahore, Pakistan.">
+  <meta property="og:url" content="https://float.pk">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="Float AI, back to top">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="5" fill="currentColor"/>
+          <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <circle cx="27" cy="16" r="2.2" fill="currentColor"/>
+        </svg>
+        <span>float<span class="brand__ai">ai</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#what">What we build</a>
+        <a href="#how">How we work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" data-wa href="#contact">Talk to us</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="dot"></span>Lahore · Automated business systems</p>
+          <h1 class="hero__title">One system that <span class="grad">runs your business</span> for you.</h1>
+          <p class="hero__lede">Float builds the software growing businesses actually need, from a simple CRM to a full setup covering sales, stock, staff and customers. No spreadsheets to chase. No WhatsApp threads to dig through.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" data-wa href="#contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>
+              Book a call on WhatsApp
+            </a>
+            <a class="btn btn--ghost" href="#what">See what we build</a>
+          </div>
+          <ul class="hero__tags" aria-label="What Float builds">
+            <li>Websites</li><li>CRMs</li><li>Stock &amp; sales</li><li>WhatsApp automation</li><li>AI receptionists</li>
+          </ul>
+        </div>
+
+        <figure class="orbit" aria-label="Diagram: Float connects WhatsApp, CRM, stock, sales, staff and an AI receptionist into one system">
+          <svg class="orbit__lines" viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="ln" x1="0" x2="1">
+                <stop offset="0" stop-color="var(--accent)" stop-opacity="0"/>
+                <stop offset=".5" stop-color="var(--accent)" stop-opacity=".9"/>
+                <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="200" r="150" class="ring"/>
+            <circle cx="200" cy="200" r="96" class="ring ring--inner"/>
+            <g class="spokes">
+              <line x1="200" y1="200" x2="200" y2="50"/>
+              <line x1="200" y1="200" x2="330" y2="125"/>
+              <line x1="200" y1="200" x2="330" y2="275"/>
+              <line x1="200" y1="200" x2="200" y2="350"/>
+              <line x1="200" y1="200" x2="70" y2="275"/>
+              <line x1="200" y1="200" x2="70" y2="125"/>
+            </g>
+            <g class="pulses">
+              <circle r="3"><animateMotion dur="3s" repeatCount="indefinite" path="M200 50 L200 200"/></circle>
+              <circle r="3"><animateMotion dur="3.4s" begin=".6s" repeatCount="indefinite" path="M330 125 L200 200"/></circle>
+              <circle r="3"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite" path="M200 200 L330 275"/></circle>
+              <circle r="3"><animateMotion dur="3.2s" begin=".3s" repeatCount="indefinite" path="M200 350 L200 200"/></circle>
+              <circle r="3"><animateMotion dur="3.6s" begin="1.5s" repeatCount="indefinite" path="M200 200 L70 275"/></circle>
+              <circle r="3"><animateMotion dur="3s" begin=".9s" repeatCount="indefinite" path="M70 125 L200 200"/></circle>
+            </g>
+          </svg>
+          <div class="orbit__core"><span>float</span></div>
+          <div class="node" style="--x:50%;--y:12.5%;--d:0s"><b>WhatsApp</b><small>orders &amp; replies</small></div>
+          <div class="node" style="--x:82.5%;--y:31.25%;--d:.8s"><b>CRM</b><small>leads → deals</small></div>
+          <div class="node" style="--x:82.5%;--y:68.75%;--d:1.6s"><b>Stock</b><small>factory → outlet</small></div>
+          <div class="node" style="--x:50%;--y:87.5%;--d:.4s"><b>Sales &amp; profit</b><small>live totals</small></div>
+          <div class="node" style="--x:17.5%;--y:68.75%;--d:1.2s"><b>Staff</b><small>attendance</small></div>
+          <div class="node node--ai" style="--x:17.5%;--y:31.25%;--d:2s"><b>AI receptionist</b><small>answers 24/7</small></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="shift">
+      <div class="wrap shift__grid">
+        <div class="reveal">
+          <p class="eyebrow">The problem</p>
+          <h2>Your business has outgrown spreadsheets.</h2>
+        </div>
+        <div class="shift__compare reveal">
+          <div class="col col--before">
+            <p class="col__label">Today</p>
+            <ul>
+              <li>Orders lost in WhatsApp threads</li>
+              <li>Stock counted by hand at every outlet</li>
+              <li>Five spreadsheets, none of them current</li>
+              <li>Follow-ups that depend on someone remembering</li>
+              <li>Customers waiting for a reply after hours</li>
+            </ul>
+          </div>
+          <div class="col col--after">
+            <p class="col__label">With Float</p>
+            <ul>
+              <li>Every order and lead in one pipeline</li>
+              <li>Stock tracked from factory to outlet</li>
+              <li>Sales, profit, payables and receivables, live</li>
+              <li>Follow-ups sent automatically</li>
+              <li>An AI receptionist that answers around the clock</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="what">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">What we build</p>
+          <h2>Not one fixed product.<br><span class="muted">The system your business needs.</span></h2>
+        </div>
+
+        <div class="cards">
+          <article class="card card--wide reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h4"/></svg></div>
+            <p class="card__num">01</p>
+            <h3>CRMs &amp; business management</h3>
+            <p>The core of how your business runs, built around how you already work.</p>
+            <ul class="chips">
+              <li>Sales pipelines</li>
+              <li>Multi-location stock</li>
+              <li>Sales &amp; profit tracking</li>
+              <li>Payables &amp; receivables</li>
+              <li>Staff attendance</li>
+              <li>Team management</li>
+            </ul>
+          </article>
+
+          <article class="card card--ai reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+            <p class="card__num">02</p>
+            <h3>Automation &amp; AI</h3>
+            <p>WhatsApp automations, AI chatbots and AI receptionists that answer customers, take orders and book appointments around the clock.</p>
+            <div class="chat" aria-label="Example WhatsApp conversation with an AI receptionist">
+              <p class="chat__msg chat__msg--in">Salam, are you open Sunday? Want to book for 6.</p>
+              <p class="chat__msg chat__msg--out">Wa alaikum salam! Yes, 12pm–11pm. I've held a table for 6 at 8pm Sunday. Shall I confirm?</p>
+              <p class="chat__typing"><span></span><span></span><span></span></p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+            <p class="card__num">03</p>
+            <h3>Websites &amp; custom software</h3>
+            <p>Business websites, web apps and software built for how each client works, not bent to fit a template.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M3 11l15-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0v-4"/></svg></div>
+            <p class="card__num">04</p>
+            <h3>Digital &amp; creative marketing</h3>
+            <p>Ads, content and campaigns that bring people into the system, together with our sister agency, Peregrine Marketing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHO ============ -->
+    <section class="who">
+      <div class="wrap who__inner reveal">
+        <p class="eyebrow">Who it's for</p>
+        <p class="who__quote">Growing businesses that run on <em>spreadsheets</em>, <em>WhatsApp threads</em> and <em>manual follow-ups</em>, and want one system that runs things for them.</p>
+        <ul class="who__list">
+          <li>Restaurants &amp; cafés</li>
+          <li>Retail &amp; multi-outlet brands</li>
+          <li>Manufacturers &amp; distributors</li>
+          <li>Clinics &amp; services</li>
+          <li>Trading businesses</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">How we work</p>
+          <h2>From how you run today<br><span class="muted">to a system that runs itself.</span></h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__n">01</span>
+            <h3>Look</h3>
+            <p>We start by understanding how your business runs today: who does what, where the data lives, what slows you down.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__n">02</span>
+            <h3>Design</h3>
+            <p>We map the system you need, sized to your business, from one CRM to the whole operation.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__n">03</span>
+            <h3>Build &amp; launch</h3>
+            <p>We build it, move your data in, and get your team using it.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__n">04</span>
+            <h3>Support</h3>
+            <p>We stay on after launch to fix, adjust and add to it as you grow.</p>
+          </li>
+        </ol>
+        <div class="pricing reveal">
+          <div>
+            <p class="eyebrow">Pricing</p>
+            <p class="pricing__text">Personalised to your scope. You pay for the system your business needs, nothing bolted on.</p>
+          </div>
+          <a class="btn btn--ghost" data-wa href="#contact">Get a quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact__panel reveal">
+          <div class="contact__glow" aria-hidden="true"></div>
+          <p class="eyebrow">Start here</p>
+          <h2>Tell us how your business runs.<br><span class="grad">We'll show you what it could look like.</span></h2>
+          <p class="contact__lede">A short call, no obligation. We'll ask how things work today and suggest where a system would save you the most time.</p>
+          <div class="contact__actions">
+            <a class="btn btn--primary btn--lg" data-wa href="#">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>
+              Book a call on WhatsApp
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:hello@float.pk?subject=Float%20AI%20enquiry">Email hello@float.pk</a>
+          </div>
+          <dl class="contact__meta">
+            <div><dt>WhatsApp / Phone</dt><dd><a href="tel:+923014652554">+92 301 4652554</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:hello@float.pk">hello@float.pk</a></dd></div>
+            <div><dt>Based in</dt><dd>Lahore, Pakistan</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand" href="#top" aria-label="Float AI, back to top">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="5" fill="currentColor"/>
+          <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <circle cx="27" cy="16" r="2.2" fill="currentColor"/>
+        </svg>
+        <span>float<span class="brand__ai">ai</span></span>
+      </a>
+      <p class="footer__note">Automated systems for growing businesses. Marketing with our sister agency, Peregrine Marketing.</p>
+      <p class="footer__copy">© <span id="year">2026</span> Float · float.pk · Lahore</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" data-wa href="#contact" aria-label="Chat with Float on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9 9.5c.3 1.8 1.7 3.6 3.6 4.4l1-1 1.6.7-.3 1.4c-3 .2-6.4-3-6.6-6l1.4-.4.7 1.6z" fill="currentColor" stroke="none"/></svg>
+  </a>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
